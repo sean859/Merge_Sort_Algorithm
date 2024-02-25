@@ -1,17 +1,14 @@
-# This imports pandas into the project allowing you to utilize it to read the excel file
+# This imports pandas and time into the project allowing you to utilize it to read the excel file, and track the time needed
 import pandas as pd 
+import time
 
-# This line declares a variable called 'data' that holds all the information from the excel file
-data = pd.read_excel(r'C:\Users\seana\Desktop\rugby_players_data.xlsx')
+# This line declares a variable called 'rugby_data' that holds all the information from the excel file
+rugby_data = pd.read_excel(r'C:\Users\seana\Desktop\rugby_players_data.xlsx')
 
-# This prints the data to make sure its right 
-print(data)
 
 # This makes a new list called 'Agedata' that will hold all the data from the excel file under the column labeled 'Age'
-Agedata = list(data.Age)
+Agedata = list(rugby_data.Age)
 
-# This will print it to show the datas correct
-# print(Agedata)
 
 # This is the merge sort algorithm consiting of two functions 
 
@@ -21,7 +18,7 @@ Agedata = list(data.Age)
 def merge(left, right):
     result = []
     i,j = 0, 0
-    while i < len(left) and j < len(right):
+    while i < len(left) and j < len(right): # When this is true we keep adding values into the different lists
         if left[i] <= right[j]:
             result.append(left[i])
             i+=1
@@ -31,6 +28,7 @@ def merge(left, right):
     result += left[i:]
     result += right[j:]
     return result
+
 # This function essentially breaks the full unsorted list up into two sublists, with it being an even amount in each list
 # if its an odd number list then it will place the extra value in the sublist on the left, once the sublist have been created
 # it sends those sublists to the main merge function above labeled as 'left' and 'right'
@@ -41,7 +39,13 @@ def mergesort(lst):
     left = mergesort(lst[:mid])
     right = mergesort(lst[mid:])
     return merge(left, right)
+
 # Then this last bit of code will call the mergesort function and assign it the list we have, being 'Agedata' which is just
-# all the values from the excel spreadsheet 'Age' column, then it prints the results of the full sorted list
-# print(mergesort(Agedata))
+# all the values from the excel spreadsheet 'Age' column, then it prints the results of the full sorted list, well also printing
+# the time needed to execute the code below it
+timer_start = time.time()
+print(mergesort(Agedata))
+timer_ends = time.time()
+full_time = timer_ends - timer_start
+print('Time Taken:', full_time)
 
