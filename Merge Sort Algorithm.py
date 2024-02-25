@@ -11,7 +11,7 @@ print(data)
 Agedata = list(data.Age)
 
 # This will print it to show the datas correct
-# rint(Agedata)
+# print(Agedata)
 
 # This is the merge sort algorithm consiting of two functions 
 
