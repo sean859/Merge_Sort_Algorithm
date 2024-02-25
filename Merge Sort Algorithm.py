@@ -11,7 +11,7 @@ print(data)
 Agedata = list(data.Age)
 
 # This will print it to show the datas correct
-print(Agedata)
+# rint(Agedata)
 
 # This is the merge sort algorithm consiting of two functions 
 
@@ -43,5 +43,5 @@ def mergesort(lst):
     return merge(left, right)
 # Then this last bit of code will call the mergesort function and assign it the list we have, being 'Agedata' which is just
 # all the values from the excel spreadsheet 'Age' column, then it prints the results of the full sorted list
-print(mergesort(Agedata))
+# print(mergesort(Agedata))
 
